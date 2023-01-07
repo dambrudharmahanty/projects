@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Q&A using BERT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style>
+      .container {
+        max-width: 1000px;
+      }
+    </style>
+</head>
+<body>
+    <h1 align="center" style="background-color:DodgerBlue;">Question and Answer using BERT</h1>
+    <i><p style="color:MediumSeaGreen;">Note: Default text and question is provided for test purpose, change Input text and question as per requirement.</p> </i> 
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5 col-sm-offset-1">
+  
+        <form action="" method="POST">
+            <div class="form-group">
+            <h4>Provide Input Text</h4>
+            <textarea id="textvalue" name="textvalue" rows="10" cols="100">{{ results[0]}}</textarea>
+            </div>
+        
+            <div class="form-group">
+            <h4>Question for BERT</h4>
+            <textarea id="questionvalue" name="questionvalue" rows="4" cols="50">{{ results[1]}}</textarea>
+            </div>
+            </br></br>
+            <p align="right">
+            <input type="submit"></p>
+        </form>
+        </div>
+
+    <div class="col-sm-5 col-sm-offset-1">
+          {% if results[2] %}
+            
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h4>BERT Answer</h4>
+            <div id="results">
+                <textarea id="answerval" name="answerval" rows="4" cols="50"> {{ results[2]}}</textarea>               
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+        <br>
+          {% for error in errors %}
+            <h4  align="center">{{ error }}</h4>
+          {% endfor %}
+          <br>
+</body>
+</html>
